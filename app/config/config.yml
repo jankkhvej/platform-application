@@ -2,6 +2,23 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
 
+# Doctrine Configuration
+doctrine:
+    dbal:
+        connections:
+            default:
+                driver:       "%database_driver%"
+                host:         "%database_host%"
+                port:         "%database_port%"
+                dbname:       "%database_name%"
+                user:         "%database_user%"
+                password:     "%database_password%"
+                charset:      utf8mb4
+                default_table_options:
+                    charset: utf8mb4
+                    collate: utf8mb4_unicode_ci
+                    row_format: dynamic
+
 framework:
     #esi:             ~
     translator:      { fallback: en }
