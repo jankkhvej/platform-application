@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Szkla\Bundle\ProductGridBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -29,9 +29,9 @@ class ValueDecimals
     private $id;
 
     /**
-     * @var \AppBundle\Entity\Products
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Products
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Products")
+     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -39,9 +39,9 @@ class ValueDecimals
     private $product;
 
     /**
-     * @var \AppBundle\Entity\Attributes
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Attributes
      *
-     * @ORM\ManyToOne(targetEntity="AppBundle\Entity\Attributes")
+     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Attributes")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="attribute_id", referencedColumnName="id")
      * })
@@ -87,11 +87,11 @@ class ValueDecimals
     /**
      * Set product
      *
-     * @param \AppBundle\Entity\Products $product
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Products $product
      *
      * @return ValueDecimals
      */
-    public function setProduct(\AppBundle\Entity\Products $product = null)
+    public function setProduct(\Szkla\Bundle\ProductGridBundle\Entity\Products $product = null)
     {
         $this->product = $product;
 
@@ -101,7 +101,7 @@ class ValueDecimals
     /**
      * Get product
      *
-     * @return \AppBundle\Entity\Products
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Products
      */
     public function getProduct()
     {
@@ -111,11 +111,11 @@ class ValueDecimals
     /**
      * Set attribute
      *
-     * @param \AppBundle\Entity\Attributes $attribute
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute
      *
      * @return ValueDecimals
      */
-    public function setAttribute(\AppBundle\Entity\Attributes $attribute = null)
+    public function setAttribute(\Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute = null)
     {
         $this->attribute = $attribute;
 
@@ -125,7 +125,7 @@ class ValueDecimals
     /**
      * Get attribute
      *
-     * @return \AppBundle\Entity\Attributes
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Attributes
      */
     public function getAttribute()
     {

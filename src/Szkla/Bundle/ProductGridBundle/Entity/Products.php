@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Entity;
+namespace Szkla\Bundle\ProductGridBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
