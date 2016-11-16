@@ -1,0 +1,4 @@
+services:
+#    szkla_product_grid.example:
+#        class: Szkla\Bundle\ProductGridBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]

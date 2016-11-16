@@ -1,0 +1,3 @@
+szkla_product_grid_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: SzklaProductGridBundle:Default:index }

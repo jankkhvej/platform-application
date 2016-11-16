@@ -1,0 +1,3 @@
+# src/Acme/Bundle/NewBundle/Resources/config/oro/bundles.yml
+bundles:
+    - Szkla\Bundle\ProductGridBundle\SzklaProductGridBundle
