@@ -4,6 +4,7 @@ namespace Szkla\Bundle\ProductGridBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Products
@@ -17,13 +18,15 @@ class Products
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(name="create_time", type="datetime", nullable=true)
      */
-    private $createTime = 'CURRENT_TIMESTAMP';
+    private $createTime;
 
     /**
      * @var \DateTime
      *
+     * @Gedmo\Timestampable(on="update")
      * @ORM\Column(name="modify_time", type="datetime", nullable=true)
      */
     private $modifyTime;
