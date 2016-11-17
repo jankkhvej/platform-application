@@ -38,9 +38,9 @@ class Products
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_active", type="boolean", nullable=false)
+     * @ORM\Column(name="is_active", type="boolean", nullable=false, options={"default": 1})
      */
-    private $isActive = '1';
+    private $isActive = true;
 
     /**
      * @var integer

@@ -29,9 +29,9 @@ class Attributes
     /**
      * @var boolean
      *
-     * @ORM\Column(name="is_required", type="boolean", nullable=false)
+     * @ORM\Column(name="is_required", type="boolean", nullable=false, options={"default": 0})
      */
-    private $isRequired = '0';
+    private $isRequired = false;
 
     /**
      * @var integer
