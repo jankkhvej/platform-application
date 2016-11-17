@@ -1,0 +1,6 @@
+# src/Szkla/Bundle/ProductGridBundle/SzklaProductGridBundle/Resources/config/form.yml
+services:
+    szkla_products.form.type.product:
+        class: Szkla\Bundle\ProductGridBundle\Form\Type\ProductType
+        tags:
+            - { name: form.type, alias: szkla_products }

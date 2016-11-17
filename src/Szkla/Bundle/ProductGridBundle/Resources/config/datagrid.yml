@@ -1,0 +1,64 @@
+#
+datagrid:
+    products-grid:
+        source:
+            acl_resource: szkla_products.product_view
+            type: orm
+            query:
+                select:
+                    - p.id
+                    - p.sku
+                from:
+                    - { table: SzklaProductGridBundle:Products, alias: p }
+        columns:
+            sku:
+                label: SKU
+                frontend_type: string
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: szkla_products.product_update
+                params:
+                    - id
+            view_link:
+                type: url
+                route: szkla_products.product_view
+                params:
+                    - id
+            delete_link:
+                type: url
+                route: szkla_products_api_delete_product
+                params:
+                    - id
+        sorters:
+            columns:
+                sku:
+                    data_name: p.sku
+            default:
+                sku: ASC
+        filters:
+            columns:
+                sku:
+                    type: string
+                    data_name: p.sku
+        actions:
+            view:
+                type:          navigate
+                label:         View
+                link:          view_link
+                icon:          eye-open
+                acl_resource:  szkla_products.product_view
+                rowAction:     true
+            update:
+                type:          navigate
+                label:         Update
+                link:          update_link
+                icon:          edit
+                acl_resource:  szkla_products.product_update
+            delete:
+                type:          delete
+                label:         Delete
+                link:          delete_link
+                icon:          trash
+                acl_resource:  szkla_products.product_delete

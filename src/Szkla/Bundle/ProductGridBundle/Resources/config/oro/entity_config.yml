@@ -1,0 +1,22 @@
+entity_config:
+    szkla:
+        entity:
+            products:
+                sku:
+                    options:
+                        default_value: "SZKL0000-0000-ABCD-XYZ"
+                        translatable:  false
+                        indexed:       true
+                        priority:      100
+                    grid:
+                        type:        string
+                        label:       SKU
+                        show_filter: true
+                        filterable:  true
+                        filter_type: string
+                        sortable:    true
+                    form:
+                        type: text
+                        options:
+                            block: entity
+                            label: SKU

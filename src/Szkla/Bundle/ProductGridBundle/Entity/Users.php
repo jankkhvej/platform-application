@@ -3,12 +3,14 @@
 namespace Szkla\Bundle\ProductGridBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 
 /**
  * Users
  *
  * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="username_UNIQUE", columns={"username"})}, indexes={@ORM\Index(name="is_active", columns={"is_active"})})
  * @ORM\Entity
+ * @Config
  */
 class Users
 {

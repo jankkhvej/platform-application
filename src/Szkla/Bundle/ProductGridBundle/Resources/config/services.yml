@@ -1,4 +1,7 @@
 services:
-#    szkla_product_grid.example:
-#        class: Szkla\Bundle\ProductGridBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    szkla_products.product_manager.api:
+        class: Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
+        parent: oro_soap.manager.entity_manager.abstract
+        arguments:
+            - Szkla\Bundle\ProductGridBundle\Entity\Products
+            - "@doctrine.orm.entity_manager"
