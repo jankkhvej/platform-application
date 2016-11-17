@@ -35,7 +35,10 @@ class ProductsController extends Controller
      */
     public function viewAction(Products $product)
     {
-        return array('product' => $product);
+        return array(
+            'entity' => $product,   // XXX: seems like this needs to be passed for ORO
+            'product' => $product,
+        );
     }
 
     /**
