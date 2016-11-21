@@ -2,14 +2,29 @@
 
 namespace Szkla\Bundle\ProductGridBundle\Entity;
 
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
+
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
+
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Products
  *
- * @ORM\Table(name="products", uniqueConstraints={@ORM\UniqueConstraint(name="sku_UNIQUE", columns={"sku"})}, indexes={@ORM\Index(name="is_active", columns={"is_active"})})
+ * @SuppressWarnings(PHPMD.ExcessivePublicCount)
+ * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
+ * @SuppressWarnings(PHPMD.ExcessiveClassLength)
+ *
+ * @ORM\Table(
+ *     name="products",
+ *     uniqueConstraints = {
+ *         @ORM\UniqueConstraint(name="sku_UNIQUE", columns={"sku"})
+ *     },
+ *     indexes={
+ *         @ORM\Index(name="is_active", columns={"is_active"})
+ * })
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity
  * @Config
  */
@@ -161,4 +176,34 @@ class Products
     {
         return $this->id;
     }
+
+    /**
+     * Pre persist event listener
+     *
+     * @ORM\PrePersist
+     */
+    public function beforeSave()
+    {
+        $this->createTime = $this->modifyTime = new \DateTime('now', new \DateTimeZone('UTC'));
+//        $this->modifyTime = new \DateTime('now', new \DateTimeZone('UTC'));
+    }
+
+    /**
+     * Invoked before the entity is updated.
+     *
+     * @ORM\PreUpdate
+     *
+     * @param PreUpdateEventArgs $event
+     */
+    public function preUpdate(PreUpdateEventArgs $event)
+    {
+        $excludedFields = [
+//            'lastLogin', 'loginCount'
+        ];
+
+        if (array_diff_key($event->getEntityChangeSet(), array_flip($excludedFields))) {
+            $this->modifyTime = new \DateTime('now', new \DateTimeZone('UTC'));
+        }
+    }
+
 }

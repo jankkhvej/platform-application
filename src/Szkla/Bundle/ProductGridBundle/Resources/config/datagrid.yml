@@ -7,13 +7,25 @@ datagrid:
             query:
                 select:
                     - p.id
+                    - p.createTime
+                    - p.modifyTime
                     - p.sku
+                    - p.isActive
                 from:
                     - { table: SzklaProductGridBundle:Products, alias: p }
         columns:
             sku:
                 label: SKU
                 frontend_type: string
+            isActive:
+                label: "Active?"
+                frontend_type: boolean
+            createTime:
+                label: Created
+                frontend_type: datetime
+            modifyTime:
+                label: Modified
+                frontend_type: datetime
         properties:
             id: ~
             update_link:
@@ -35,6 +47,12 @@ datagrid:
             columns:
                 sku:
                     data_name: p.sku
+                isActive:
+                    data_name: p.isActive
+                createTime:
+                    data_name: p.createTime
+                modifyTime:
+                    data_name: p.modifyTime
             default:
                 sku: ASC
         filters:
@@ -42,6 +60,15 @@ datagrid:
                 sku:
                     type: string
                     data_name: p.sku
+                isActive:
+                    type: boolean
+                    data_name: p.isActive
+                createTime:
+                    type: datetime
+                    data_name: p.createTime
+                modifyTime:
+                    type: datetime
+                    data_name: p.modifyTime
         actions:
             view:
                 type:          navigate

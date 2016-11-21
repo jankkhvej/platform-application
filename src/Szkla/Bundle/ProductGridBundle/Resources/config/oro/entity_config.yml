@@ -20,3 +20,22 @@ entity_config:
                         options:
                             block: entity
                             label: SKU
+                isActive:
+                    options:
+                        translatable:  false
+                        indexed:       true
+                        priority:      90
+                    grid:
+                        type:        boolean
+                        label:       "Active?"
+                        show_filter: true
+                        filterable:  true
+                        filter_type: boolean
+                        sortable:    true
+                    form:
+                        type: choice
+                        options:
+                            block:       entity
+                            label:       'Active?'
+                            choices:     ['No', 'Yes']
+                            empty_value: false

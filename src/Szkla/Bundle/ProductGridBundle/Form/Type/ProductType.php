@@ -26,12 +26,35 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+//            ->add(
+//                'sku',
+//            )
+//            ->add(
+//                'isActive',
+//                'choice',
+//                [
+//                    'required' => true,
+//                    'label'    => 'szkla.products.is_active.label'
+//                ]
+//            )
             ->add(
                 'sku',
                 'text',
                 [
                     'required' => true,
                     'label'    => 'szkla.products.sku.label'
+                ]
+            )
+            ->add(
+                'isActive',
+                'choice',
+                [
+                    'label' => 'Active?',
+                    'required' => true,
+                    'choices' => ['Inactive', 'Active'],
+                    'empty_value' => 'Please select',
+                    'empty_data' => '',
+                    'auto_initialize' => false
                 ]
             )
         ;

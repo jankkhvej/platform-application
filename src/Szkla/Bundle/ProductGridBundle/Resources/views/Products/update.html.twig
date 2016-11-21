@@ -43,6 +43,12 @@
     {% endif %}
 {% endblock pageHeader %}
 
+{% block stats %}
+    <li>{{ 'ID #'|trans }}: {{ form.vars.value.id ? form.vars.value.id : 'N/A'}}</li>
+    <li>{{ 'oro.ui.created_at'|trans }}: {{ form.vars.value.createTime ? form.vars.value.createTime|oro_format_datetime : 'N/A' }}</li>
+    <li>{{ 'oro.ui.updated_at'|trans }}: {{ form.vars.value.modifyTime ? form.vars.value.modifyTime|oro_format_datetime : 'N/A' }}</li>
+{% endblock stats %}
+
 {% block content_data %}
     {% set id = 'product-edit' %}
 
@@ -53,6 +59,7 @@
                 'title': '',
                 'data': [
                     form_row(form.sku),
+                    form_row(form.isActive),
                 ]
             }]
         }]
