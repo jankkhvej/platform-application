@@ -1,10 +1,15 @@
 # src/Szkla/Bundle/ProductGridBundle/Resources/config/oro/navigation.yml
 oro_menu_config:
     items:
-        skla_products_list:
-            label: "Szkla Products"
+        szkla_main:
+            label: "Szkla.com"
+            uri: "#"
+        szkla_products_list:
+            label: "Products"
             route: szkla_products.products_index
     tree:
         application_menu:
             children:
-                skla_products_list: ~
+                szkla_main:
+                    children:
+                        szkla_products_list: ~
