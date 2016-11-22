@@ -26,23 +26,12 @@ class ProductType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-//            ->add(
-//                'sku',
-//            )
-//            ->add(
-//                'isActive',
-//                'choice',
-//                [
-//                    'required' => true,
-//                    'label'    => 'szkla.products.is_active.label'
-//                ]
-//            )
             ->add(
                 'sku',
                 'text',
                 [
                     'required' => true,
-                    'label'    => 'szkla.products.sku.label'
+                    'label'    => 'szkla.products.sku.label',
                 ]
             )
             ->add(
@@ -54,14 +43,64 @@ class ProductType extends AbstractType
                     'choices' => ['Inactive', 'Active'],
                     'empty_value' => 'Please select',
                     'empty_data' => '',
-                    'auto_initialize' => false
+                    'auto_initialize' => false,
+                ]
+            )
+            ->add(
+                'integerValues',
+                'oro_collection',
+                [
+                    'required' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]
+            )
+            ->add(
+                'decimalValues',
+                'oro_collection',
+                [
+                    'required' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]
+            )
+            ->add(
+                'datetimeValues',
+                'oro_collection',
+                [
+                    'required' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]
+            )
+            ->add(
+                'varcharValues',
+                'oro_collection',
+                [
+                    'required' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
+                ]
+            )
+            ->add(
+                'textValues',
+                'oro_collection',
+                [
+                    'required' => false,
+                    'allow_add' => true,
+                    'allow_delete' => true,
+                    'by_reference' => false,
                 ]
             )
         ;
     }
 
     /**
-     *M-BM- {@inheritdoc}
+     * {@inheritdoc}
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
@@ -72,6 +111,9 @@ class ProductType extends AbstractType
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getName()
     {
         return 'szkla_products';

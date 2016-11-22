@@ -137,4 +137,12 @@ class ValueDecimal
     {
         return $this->attribute;
     }
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return (string) $this->value;
+    }
 }

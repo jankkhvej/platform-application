@@ -47,6 +47,37 @@
                     {{ UI.renderProperty('Active?'|trans, product.isActive) }}
                     {{ UI.renderProperty('oro.ui.created_at'|trans, product.createTime|oro_format_datetime) }}
                     {{ UI.renderProperty('oro.ui.updated_at'|trans, product.modifyTime|oro_format_datetime) }}
+
+                    {% if product.integerValues|length %}
+                        {% for item in product.integerValues %}
+                            {{ UI.renderProperty('Integer value', item) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if product.decimalValues|length %}
+                        {% for item in product.decimalValues %}
+                            {{ UI.renderProperty('Decimal value', item) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if product.datetimeValues|length %}
+                        {% for item in product.datetimeValues %}
+                            {{ UI.renderProperty('DateTime value', item) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if product.varcharValues|length %}
+                        {% for item in product.varcharValues %}
+                            {{ UI.renderProperty('Varchar value', item) }}
+                        {% endfor %}
+                    {% endif %}
+
+                    {% if product.textValues|length %}
+                        {% for item in product.textValues %}
+                            {{ UI.renderProperty('Text value', item) }}
+                        {% endfor %}
+                    {% endif %}
+
                 </div>
             </div>
         </div>

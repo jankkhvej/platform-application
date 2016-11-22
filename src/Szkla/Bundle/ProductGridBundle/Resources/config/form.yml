@@ -1,11 +1,15 @@
 # src/Szkla/Bundle/ProductGridBundle/SzklaProductGridBundle/Resources/config/form.yml
+parameters:
+    szkla_products.product.form.type.class: Szkla\Bundle\ProductGridBundle\Form\Type\ProductType
+    szkla_attributes.attribute.form.type.class: Szkla\Bundle\ProductGridBundle\Form\Type\AttributeType
+
 services:
     szkla_products.form.type.product:
-        class: Szkla\Bundle\ProductGridBundle\Form\Type\ProductType
+        class: %szkla_products.product.form.type.class%
         tags:
             - { name: form.type, alias: szkla_products }
 
     szkla_attributes.form.type.attribute:
-        class: Szkla\Bundle\ProductGridBundle\Form\Type\AttributeType
+        class: %szkla_attributes.attribute.form.type.class%
         tags:
             - { name: form.type, alias: szkla_attributes }
