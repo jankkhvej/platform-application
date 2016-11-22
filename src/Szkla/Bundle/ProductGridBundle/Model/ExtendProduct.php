@@ -18,4 +18,19 @@ class ExtendProduct
     public function __construct()
     {
     }
+
+    public function supportTarget($targetClass)
+    {
+        return false;
+    }
+
+    public function getTarget()
+    {
+        return null;
+    }
+
+    public function setTarget($target)
+    {
+        return $this;
+    }
 }

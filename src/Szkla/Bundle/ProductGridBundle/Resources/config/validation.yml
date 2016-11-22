@@ -1,0 +1,13 @@
+Szkla\Bundle\ProductGridBundle\Entity\Product:
+    properties:
+        sku:
+            - NotBlank: ~
+        isActive:
+            - NotBlank: ~
+
+Szkla\Bundle\ProductGridBundle\Entity\Attribute:
+    properties:
+        attributeName:
+            - NotBlank: ~
+        attributeType:
+            - NotBlank: ~

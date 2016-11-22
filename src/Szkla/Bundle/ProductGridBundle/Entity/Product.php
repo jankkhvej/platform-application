@@ -2,11 +2,10 @@
 
 namespace Szkla\Bundle\ProductGridBundle\Entity;
 
+use Szkla\Bundle\ProductGridBundle\Model\ExtendProduct;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
-
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
-
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
@@ -28,7 +27,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity
  * @Config
  */
-class Product
+class Product extends ExtendProduct
 {
     /**
      * @var \DateTime
