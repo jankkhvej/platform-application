@@ -11,7 +11,16 @@ use Gedmo\Mapping\Annotation as Gedmo;
 /**
  * Users
  *
- * @ORM\Table(name="users", uniqueConstraints={@ORM\UniqueConstraint(name="username_UNIQUE", columns={"username"})}, indexes={@ORM\Index(name="is_active", columns={"is_active"})})
+ * @ORM\Table(
+ *     name="users",
+ *     uniqueConstraints={
+ *         @ORM\UniqueConstraint(name="username_UNIQUE", columns={"username"})
+ *     },
+ *     indexes={
+ *         @ORM\Index(name="is_active", columns={"is_active"})
+ *     }
+ * )
+ * @ORM\HasLifecycleCallbacks()
  * @ORM\Entity
  * @Config
  */
