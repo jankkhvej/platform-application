@@ -1,5 +1,87 @@
 #
 datagrid:
+    szkla-users-grid:
+        source:
+            type: orm
+            query:
+                select:
+                    - u.id
+                    - u.createTime
+                    - u.modifyTime
+                    - u.username
+                    - u.email
+                    - u.password
+                    - u.note
+                    - u.isActive
+                from:
+                    - { table: SzklaProductGridBundle:User, alias u }
+        columns:
+            id:
+                label: ID
+                frontend_type: integer
+            email:
+                label: "E-mail"
+                frontend_type: string
+            username:
+                label: Username
+                frontend_type: string
+            isActive:
+                label: "Active"
+                frontend_type: boolean
+            createTime:
+                label: "Created on"
+                frontend_type: datetime
+            modifyTime:
+                label: "Modified on"
+                frontend_type: datetime
+            password:
+                label: "Password Hash"
+                frontend_type: string
+            note:
+                label: "Note"
+                frontend_type: string
+        sorters:
+            columns:
+                id:
+                    data_name: u.id
+                email:
+                    data_name: u.email
+                username:
+                    data_name: u.username
+                isActive:
+                    data_name: u.isActive
+                createTime:
+                    data_name: u.createTime
+                modifyTime:
+                    data_name: u.modifyTime
+                note:
+                    data_name: u.note
+            default:
+                id: ASC
+        filters:
+            columns:
+                id:
+                    type: number
+                    data_name: u.id
+                email:
+                    type: string
+                    data_name: u.email
+                username:
+                    type: string
+                    data_name: u.username
+                isActive:
+                    type: boolean
+                    data_name: u.isActive
+                createTime:
+                    type: datetime
+                    data_name: u.createTime
+                modifyTime:
+                    type: datetime
+                    data_name: u.modifyTime
+                note:
+                    type: string
+                    data_name: u.note
+
     products-grid:
         source:
             acl_resource: szkla_products.product_view

@@ -28,3 +28,8 @@ szkla_attributes_api_attribute:
         _format:  json
     defaults:
         version:  latest
+
+szkla_user:
+    resource: "@SzklaProductGridBundle/Controller/UserController.php"
+    type: annotation
+    prefix: /szkla_users

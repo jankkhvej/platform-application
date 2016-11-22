@@ -2,6 +2,7 @@
 
 namespace Szkla\Bundle\ProductGridBundle\Entity;
 
+use Doctrine\ORM\Event\PreUpdateEventArgs;
 use Doctrine\ORM\Mapping as ORM;
 use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Gedmo\Mapping\Annotation as Gedmo;
@@ -254,5 +255,33 @@ class User
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Pre persist event listener
+     *
+     * @ORM\PrePersist
+     */
+    public function beforeSave()
+    {
+        $this->createTime = $this->modifyTime = new \DateTime('now', new \DateTimeZone('UTC'));
+    }
+
+    /**
+     * Invoked before the entity is updated.
+     *
+     * @ORM\PreUpdate
+     *
+     * @param PreUpdateEventArgs $event
+     */
+    public function preUpdate(PreUpdateEventArgs $event)
+    {
+        $excludedFields = [
+//            'lastLogin', 'loginCount'
+        ];
+
+        if (array_diff_key($event->getEntityChangeSet(), array_flip($excludedFields))) {
+            $this->modifyTime = new \DateTime('now', new \DateTimeZone('UTC'));
+        }
     }
 }

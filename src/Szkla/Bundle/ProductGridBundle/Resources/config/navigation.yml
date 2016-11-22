@@ -10,6 +10,9 @@ oro_menu_config:
         szkla_attributes_list:
             label: "Attributes"
             route: szkla_attributes.attributes_index
+        szkla_users_list:
+            label: "Szkla.com Users"
+            route: szkla_user.user_index
     tree:
         application_menu:
             children:
@@ -17,3 +20,4 @@ oro_menu_config:
                     children:
                         szkla_products_list: ~
                         szkla_attributes_list: ~
+                szkla_users_list: ~
