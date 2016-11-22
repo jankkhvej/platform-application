@@ -5,12 +5,12 @@ namespace Szkla\Bundle\ProductGridBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Attributes
+ * Attribute
  *
  * @ORM\Table(name="attributes", uniqueConstraints={@ORM\UniqueConstraint(name="attribute_name_UNIQUE", columns={"attribute_name"})}, indexes={@ORM\Index(name="attribute_type", columns={"attribute_type"}), @ORM\Index(name="is_required", columns={"is_required"})})
  * @ORM\Entity
  */
-class Attributes
+class Attribute
 {
     const TYPE_INTEGER = 'integer';
     const TYPE_DECIMAL = 'decimal';
@@ -56,7 +56,7 @@ class Attributes
      *
      * @param string $attributeName
      *
-     * @return Attributes
+     * @return Attribute
      */
     public function setAttributeName($attributeName)
     {
@@ -80,7 +80,7 @@ class Attributes
      *
      * @param string $attributeType
      *
-     * @return Attributes
+     * @return Attribute
      */
     public function setAttributeType($attributeType)
     {
@@ -110,7 +110,7 @@ class Attributes
      *
      * @param boolean $isRequired
      *
-     * @return Attributes
+     * @return Attribute
      */
     public function setIsRequired($isRequired)
     {

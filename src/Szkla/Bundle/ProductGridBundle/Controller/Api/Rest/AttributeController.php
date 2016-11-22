@@ -6,20 +6,20 @@ use FOS\RestBundle\Controller\Annotations\NamePrefix;
 use FOS\RestBundle\Controller\Annotations\RouteResource;
 use Oro\Bundle\SecurityBundle\Annotation\Acl;
 use Oro\Bundle\SoapBundle\Controller\Api\Rest\RestController;
-use Szkla\Bundle\ProductGridBundle\Entity\Products;
+use Szkla\Bundle\ProductGridBundle\Entity\Attribute;
 
 /**
- * Class ProductsController
- * @RouteResource("product")
- * @NamePrefix("szkla_products_api_")
+ * Class AttributesController
+ * @RouteResource("attribute")
+ * @NamePrefix("szkla_attributes_api_")
  */
-class ProductsController extends RestController
+class AttributeController extends RestController
 {
     /**
      * @Acl(
-     *     id="szkla_products.product_delete",
+     *     id="szkla_attributes.attribute_delete",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Products",
+     *     class="SzklaProductGridBundle:Attribute",
      *     permission="DELETE"
      * )
      */
@@ -38,6 +38,6 @@ class ProductsController extends RestController
 
     public function getManager()
     {
-        return $this->get('szkla_products.product_manager.api');
+        return $this->get('szkla_attributes.attribute_manager.api');
     }
 }

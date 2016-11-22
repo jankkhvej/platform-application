@@ -1,11 +1,11 @@
 # src/Szkla/Bundle/ProductGridBundle/SzklaProductGridBundle/Resources/config/oro/routing.yml
 szkla_products:
-    resource: "@SzklaProductGridBundle/Controller/ProductsController.php"
+    resource: "@SzklaProductGridBundle/Controller/ProductController.php"
     type: annotation
     prefix: /szkla_products
 
 szkla_products_api_product:
-    resource:     "@SzklaProductGridBundle/Controller/Api/Rest/ProductsController.php"
+    resource:     "@SzklaProductGridBundle/Controller/Api/Rest/ProductController.php"
     type:         rest
     prefix:       api/rest/{version}/
     requirements:
@@ -15,12 +15,12 @@ szkla_products_api_product:
         version:  latest
 
 szkla_attributes:
-    resource: "@SzklaProductGridBundle/Controller/AttributesController.php"
+    resource: "@SzklaProductGridBundle/Controller/AttributeController.php"
     type: annotation
     prefix: /szkla_attributes
 
 szkla_attributes_api_attribute:
-    resource:     "@SzklaProductGridBundle/Controller/Api/Rest/AttributesController.php"
+    resource:     "@SzklaProductGridBundle/Controller/Api/Rest/AttributeController.php"
     type:         rest
     prefix:       api/rest/{version}/
     requirements:

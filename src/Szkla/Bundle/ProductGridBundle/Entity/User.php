@@ -14,7 +14,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity
  * @Config
  */
-class Users
+class User
 {
     /**
      * @var \DateTime
@@ -83,7 +83,7 @@ class Users
      *
      * @param \DateTime $createTime
      *
-     * @return Users
+     * @return User
      */
     public function setCreateTime($createTime)
     {
@@ -107,7 +107,7 @@ class Users
      *
      * @param \DateTime $modifyTime
      *
-     * @return Users
+     * @return User
      */
     public function setModifyTime($modifyTime)
     {
@@ -131,7 +131,7 @@ class Users
      *
      * @param string $username
      *
-     * @return Users
+     * @return User
      */
     public function setUsername($username)
     {
@@ -155,7 +155,7 @@ class Users
      *
      * @param string $email
      *
-     * @return Users
+     * @return User
      */
     public function setEmail($email)
     {
@@ -179,7 +179,7 @@ class Users
      *
      * @param string $password
      *
-     * @return Users
+     * @return User
      */
     public function setPassword($password)
     {
@@ -203,7 +203,7 @@ class Users
      *
      * @param string $note
      *
-     * @return Users
+     * @return User
      */
     public function setNote($note)
     {
@@ -227,7 +227,7 @@ class Users
      *
      * @param boolean $isActive
      *
-     * @return Users
+     * @return User
      */
     public function setIsActive($isActive)
     {

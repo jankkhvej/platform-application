@@ -10,7 +10,7 @@ use Oro\Bundle\EntityConfigBundle\Metadata\Annotation\Config;
 use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
- * Products
+ * Product
  *
  * @SuppressWarnings(PHPMD.ExcessivePublicCount)
  * @SuppressWarnings(PHPMD.ExcessiveClassComplexity)
@@ -28,7 +28,7 @@ use Gedmo\Mapping\Annotation as Gedmo;
  * @ORM\Entity
  * @Config
  */
-class Products
+class Product
 {
     /**
      * @var \DateTime
@@ -76,7 +76,7 @@ class Products
      *
      * @param \DateTime $createTime
      *
-     * @return Products
+     * @return Product
      */
     public function setCreateTime($createTime)
     {
@@ -100,7 +100,7 @@ class Products
      *
      * @param \DateTime $modifyTime
      *
-     * @return Products
+     * @return Product
      */
     public function setModifyTime($modifyTime)
     {
@@ -124,7 +124,7 @@ class Products
      *
      * @param string $sku
      *
-     * @return Products
+     * @return Product
      */
     public function setSku($sku)
     {
@@ -148,7 +148,7 @@ class Products
      *
      * @param boolean $isActive
      *
-     * @return Products
+     * @return Product
      */
     public function setIsActive($isActive)
     {

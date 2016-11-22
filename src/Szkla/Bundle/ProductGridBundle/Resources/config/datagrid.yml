@@ -12,7 +12,7 @@ datagrid:
                     - p.sku
                     - p.isActive
                 from:
-                    - { table: SzklaProductGridBundle:Products, alias: p }
+                    - { table: SzklaProductGridBundle:Product, alias: p }
         columns:
             sku:
                 label: SKU
@@ -100,7 +100,7 @@ datagrid:
                     - a.attributeName
                     - a.attributeType
                 from:
-                    - { table: SzklaProductGridBundle:Attributes, alias: a }
+                    - { table: SzklaProductGridBundle:Attribute, alias: a }
         columns:
             attributeName:
                 label: "Name"

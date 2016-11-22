@@ -62,7 +62,7 @@ class AttributeType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class'            => 'Szkla\Bundle\ProductGridBundle\Entity\Attributes',
+                'data_class'            => 'Szkla\Bundle\ProductGridBundle\Entity\Attribute',
             ]
         );
     }

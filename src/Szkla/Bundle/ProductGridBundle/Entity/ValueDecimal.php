@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="value_decimals", indexes={@ORM\Index(name="fk_value_decimals_products1_idx", columns={"product_id"}), @ORM\Index(name="fk_value_decimals_attributes1_idx", columns={"attribute_id"})})
  * @ORM\Entity
  */
-class ValueDecimals
+class ValueDecimal
 {
     /**
      * @var string
@@ -29,9 +29,9 @@ class ValueDecimals
     private $id;
 
     /**
-     * @var \Szkla\Bundle\ProductGridBundle\Entity\Products
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Product
      *
-     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Products")
+     * @ORM\ManyToOne(targetEntity="Product.php" inversedBy="products")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -39,9 +39,9 @@ class ValueDecimals
     private $product;
 
     /**
-     * @var \Szkla\Bundle\ProductGridBundle\Entity\Attributes
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Attribute
      *
-     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Attributes")
+     * @ORM\ManyToOne(targetEntity="Attribute.php")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="attribute_id", referencedColumnName="id")
      * })
@@ -55,7 +55,7 @@ class ValueDecimals
      *
      * @param string $value
      *
-     * @return ValueDecimals
+     * @return ValueDecimal
      */
     public function setValue($value)
     {
@@ -87,11 +87,11 @@ class ValueDecimals
     /**
      * Set product
      *
-     * @param \Szkla\Bundle\ProductGridBundle\Entity\Products $product
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Product $product
      *
-     * @return ValueDecimals
+     * @return ValueDecimal
      */
-    public function setProduct(\Szkla\Bundle\ProductGridBundle\Entity\Products $product = null)
+    public function setProduct(\Szkla\Bundle\ProductGridBundle\Entity\Product $product = null)
     {
         $this->product = $product;
 
@@ -101,7 +101,7 @@ class ValueDecimals
     /**
      * Get product
      *
-     * @return \Szkla\Bundle\ProductGridBundle\Entity\Products
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Product
      */
     public function getProduct()
     {
@@ -111,11 +111,11 @@ class ValueDecimals
     /**
      * Set attribute
      *
-     * @param \Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Attribute $attribute
      *
-     * @return ValueDecimals
+     * @return ValueDecimal
      */
-    public function setAttribute(\Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute = null)
+    public function setAttribute(\Szkla\Bundle\ProductGridBundle\Entity\Attribute $attribute = null)
     {
         $this->attribute = $attribute;
 
@@ -125,7 +125,7 @@ class ValueDecimals
     /**
      * Get attribute
      *
-     * @return \Szkla\Bundle\ProductGridBundle\Entity\Attributes
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Attribute
      */
     public function getAttribute()
     {

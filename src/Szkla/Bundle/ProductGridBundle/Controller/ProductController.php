@@ -8,10 +8,10 @@ use Oro\Bundle\SecurityBundle\Annotation\Acl;
 use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Szkla\Bundle\ProductGridBundle\Entity\Products;
+use Szkla\Bundle\ProductGridBundle\Entity\Product;
 use Symfony\Component\HttpFoundation\Request;
 
-class ProductsController extends Controller
+class ProductController extends Controller
 {
     /**
      * @Route("/", name="szkla_products.products_index")
@@ -19,7 +19,7 @@ class ProductsController extends Controller
      * @Acl(
      *     id="szkla_products.product_view",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Products",
+     *     class="SzklaProductGridBundle:Product",
      *     permission="VIEW"
      * )
      */
@@ -33,7 +33,7 @@ class ProductsController extends Controller
      * @Template
      * @AclAncestor("szkla_products.product_view")
      */
-    public function viewAction(Products $product)
+    public function viewAction(Product $product)
     {
         return array(
             'entity' => $product,   // XXX: seems like this needs to be passed for ORO
@@ -43,17 +43,17 @@ class ProductsController extends Controller
 
     /**
      * @Route("/create", name="szkla_products.product_create")
-     * @Template("SzklaProductGridBundle:Products:update.html.twig")
+     * @Template("SzklaProductGridBundle:Product:update.html.twig")
      * @Acl(
      *     id="szkla_products.product_create",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Products",
+     *     class="SzklaProductGridBundle:Product",
      *     permission="CREATE"
      * )
      */
     public function createAction(Request $request)
     {
-        return $this->update(new Products(), $request);
+        return $this->update(new Product(), $request);
     }
 
     /**
@@ -62,16 +62,16 @@ class ProductsController extends Controller
      * @Acl(
      *     id="szkla_products.product_update",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Products",
+     *     class="SzklaProductGridBundle:Product",
      *     permission="EDIT"
      * )
      */
-    public function updateAction(Products $product, Request $request)
+    public function updateAction(Product $product, Request $request)
     {
         return $this->update($product, $request);
     }
 
-    private function update(Products $product, Request $request)
+    private function update(Product $product, Request $request)
     {
         $form = $this->get('form.factory')->create('szkla_products', $product);
         $form->handleRequest($request);

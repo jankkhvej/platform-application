@@ -8,10 +8,10 @@ use Oro\Bundle\SecurityBundle\Annotation\Acl;
 use Oro\Bundle\SecurityBundle\Annotation\AclAncestor;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Szkla\Bundle\ProductGridBundle\Entity\Attributes;
+use Szkla\Bundle\ProductGridBundle\Entity\Attribute;
 use Symfony\Component\HttpFoundation\Request;
 
-class AttributesController extends Controller
+class AttributeController extends Controller
 {
     /**
      * @Route("/", name="szkla_attributes.attributes_index")
@@ -19,7 +19,7 @@ class AttributesController extends Controller
      * @Acl(
      *     id="szkla_attributes.attribute_view",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Attributes",
+     *     class="SzklaProductGridBundle:Attribute",
      *     permission="VIEW"
      * )
      */
@@ -33,7 +33,7 @@ class AttributesController extends Controller
      * @Template
      * @AclAncestor("szkla_attributes.attribute_view")
      */
-    public function viewAction(Attributes $attribute)
+    public function viewAction(Attribute $attribute)
     {
         return array(
             'entity' => $attribute,   // XXX: seems like this needs to be passed for ORO
@@ -43,17 +43,17 @@ class AttributesController extends Controller
 
     /**
      * @Route("/create", name="szkla_attributes.attribute_create")
-     * @Template("SzklaProductGridBundle:Attributes:update.html.twig")
+     * @Template("SzklaProductGridBundle:Attribute:update.html.twig")
      * @Acl(
      *     id="szkla_attributes.attribute_create",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Attributes",
+     *     class="SzklaProductGridBundle:Attribute",
      *     permission="CREATE"
      * )
      */
     public function createAction(Request $request)
     {
-        return $this->update(new Attributes(), $request);
+        return $this->update(new Attribute(), $request);
     }
 
     /**
@@ -62,16 +62,16 @@ class AttributesController extends Controller
      * @Acl(
      *     id="szkla_attributes.attribute_update",
      *     type="entity",
-     *     class="SzklaProductGridBundle:Attributes",
+     *     class="SzklaProductGridBundle:Attribute",
      *     permission="EDIT"
      * )
      */
-    public function updateAction(Attributes $attribute, Request $request)
+    public function updateAction(Attribute $attribute, Request $request)
     {
         return $this->update($attribute, $request);
     }
 
-    private function update(Attributes $attribute, Request $request)
+    private function update(Attribute $attribute, Request $request)
     {
         $form = $this->get('form.factory')->create('szkla_attributes', $attribute);
         $form->handleRequest($request);

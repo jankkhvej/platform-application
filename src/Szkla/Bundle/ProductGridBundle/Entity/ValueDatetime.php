@@ -5,17 +5,17 @@ namespace Szkla\Bundle\ProductGridBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * ValueTexts
+ * ValueDatetimes
  *
- * @ORM\Table(name="value_texts", indexes={@ORM\Index(name="fk_value_texts_products1_idx", columns={"product_id"}), @ORM\Index(name="fk_value_texts_attributes1_idx", columns={"attribute_id"})})
+ * @ORM\Table(name="value_datetimes", indexes={@ORM\Index(name="fk_value_datetimes_products1_idx", columns={"product_id"}), @ORM\Index(name="fk_value_datetimes_attributes1_idx", columns={"attribute_id"})})
  * @ORM\Entity
  */
-class ValueTexts
+class ValueDatetime
 {
     /**
-     * @var string
+     * @var \DateTime
      *
-     * @ORM\Column(name="value", type="text", length=65535, nullable=false)
+     * @ORM\Column(name="value", type="datetime", nullable=false)
      */
     private $value;
 
@@ -29,9 +29,9 @@ class ValueTexts
     private $id;
 
     /**
-     * @var \Szkla\Bundle\ProductGridBundle\Entity\Products
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Product
      *
-     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Products")
+     * @ORM\ManyToOne(targetEntity="Product.php")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -39,9 +39,9 @@ class ValueTexts
     private $product;
 
     /**
-     * @var \Szkla\Bundle\ProductGridBundle\Entity\Attributes
+     * @var \Szkla\Bundle\ProductGridBundle\Entity\Attribute
      *
-     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Attributes")
+     * @ORM\ManyToOne(targetEntity="Attribute.php")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="attribute_id", referencedColumnName="id")
      * })
@@ -53,9 +53,9 @@ class ValueTexts
     /**
      * Set value
      *
-     * @param string $value
+     * @param \DateTime $value
      *
-     * @return ValueTexts
+     * @return ValueDatetime
      */
     public function setValue($value)
     {
@@ -67,7 +67,7 @@ class ValueTexts
     /**
      * Get value
      *
-     * @return string
+     * @return \DateTime
      */
     public function getValue()
     {
@@ -87,11 +87,11 @@ class ValueTexts
     /**
      * Set product
      *
-     * @param \Szkla\Bundle\ProductGridBundle\Entity\Products $product
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Product $product
      *
-     * @return ValueTexts
+     * @return ValueDatetime
      */
-    public function setProduct(\Szkla\Bundle\ProductGridBundle\Entity\Products $product = null)
+    public function setProduct(\Szkla\Bundle\ProductGridBundle\Entity\Product $product = null)
     {
         $this->product = $product;
 
@@ -101,7 +101,7 @@ class ValueTexts
     /**
      * Get product
      *
-     * @return \Szkla\Bundle\ProductGridBundle\Entity\Products
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Product
      */
     public function getProduct()
     {
@@ -111,11 +111,11 @@ class ValueTexts
     /**
      * Set attribute
      *
-     * @param \Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute
+     * @param \Szkla\Bundle\ProductGridBundle\Entity\Attribute $attribute
      *
-     * @return ValueTexts
+     * @return ValueDatetime
      */
-    public function setAttribute(\Szkla\Bundle\ProductGridBundle\Entity\Attributes $attribute = null)
+    public function setAttribute(\Szkla\Bundle\ProductGridBundle\Entity\Attribute $attribute = null)
     {
         $this->attribute = $attribute;
 
@@ -125,7 +125,7 @@ class ValueTexts
     /**
      * Get attribute
      *
-     * @return \Szkla\Bundle\ProductGridBundle\Entity\Attributes
+     * @return \Szkla\Bundle\ProductGridBundle\Entity\Attribute
      */
     public function getAttribute()
     {

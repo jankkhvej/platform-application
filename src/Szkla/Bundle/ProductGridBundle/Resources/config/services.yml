@@ -3,12 +3,12 @@ services:
         class: Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
-            - Szkla\Bundle\ProductGridBundle\Entity\Products
+            - Szkla\Bundle\ProductGridBundle\Entity\Product
             - "@doctrine.orm.entity_manager"
 
     szkla_attributes.attribute_manager.api:
         class: Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
         parent: oro_soap.manager.entity_manager.abstract
         arguments:
-            - Szkla\Bundle\ProductGridBundle\Entity\Attributes
+            - Szkla\Bundle\ProductGridBundle\Entity\Attribute
             - "@doctrine.orm.entity_manager"

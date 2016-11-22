@@ -67,7 +67,7 @@ class ProductType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'data_class'            => 'Szkla\Bundle\ProductGridBundle\Entity\Products',
+                'data_class'            => 'Szkla\Bundle\ProductGridBundle\Entity\Product',
             ]
         );
     }
