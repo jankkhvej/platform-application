@@ -5,3 +5,10 @@ services:
         arguments:
             - Szkla\Bundle\ProductGridBundle\Entity\Products
             - "@doctrine.orm.entity_manager"
+
+    szkla_attributes.attribute_manager.api:
+        class: Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
+        parent: oro_soap.manager.entity_manager.abstract
+        arguments:
+            - Szkla\Bundle\ProductGridBundle\Entity\Attributes
+            - "@doctrine.orm.entity_manager"

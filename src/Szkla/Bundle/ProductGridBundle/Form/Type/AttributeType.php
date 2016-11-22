@@ -40,7 +40,13 @@ class AttributeType extends AbstractType
                 [
                     'label' => 'Type',
                     'required' => true,
-                    'choices' => ['integer', 'decimal', 'datetime', 'varchar', 'text'],
+                    'choices' => [
+                        'integer' => 'integer',
+                        'decimal' => 'decimal',
+                        'datetime' => 'datetime',
+                        'varchar' => 'varchar',
+                        'text' => 'text',
+                    ],
                     'empty_value' => 'Please select',
                     'empty_data' => '',
                     'auto_initialize' => false
