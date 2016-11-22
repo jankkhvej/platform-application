@@ -4,3 +4,8 @@ services:
         class: Szkla\Bundle\ProductGridBundle\Form\Type\ProductType
         tags:
             - { name: form.type, alias: szkla_products }
+
+    szkla_attributes.form.type.attribute:
+        class: Szkla\Bundle\ProductGridBundle\Form\Type\AttributeType
+        tags:
+            - { name: form.type, alias: szkla_attributes }

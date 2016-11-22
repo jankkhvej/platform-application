@@ -7,9 +7,13 @@ oro_menu_config:
         szkla_products_list:
             label: "Products"
             route: szkla_products.products_index
+        szkla_attributes_list:
+            label: "Attributes"
+            route: szkla_attributes.attributes_index
     tree:
         application_menu:
             children:
                 szkla_main:
                     children:
                         szkla_products_list: ~
+                        szkla_attributes_list: ~

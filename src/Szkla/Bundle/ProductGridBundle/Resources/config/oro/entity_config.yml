@@ -39,3 +39,41 @@ entity_config:
                             label:       'Active?'
                             choices:     ['No', 'Yes']
                             empty_value: false
+            attributes:
+                attributeName:
+                    options:
+                        default_value: "99_attribute_name"
+                        translatable:  false
+                        indexed:       true
+                        priority:      100
+                    grid:
+                        type:        string
+                        label:       "Name"
+                        show_filter: true
+                        filterable:  true
+                        filter_type: string
+                        sortable:    true
+                    form:
+                        type: text
+                        options:
+                            block: entity
+                            label: Name
+                attributeType:
+                    options:
+                        translatable:  false
+                        indexed:       true
+                        priority:      90
+                    grid:
+                        type:        string
+                        label:       "Type"
+                        show_filter: true
+                        filterable:  true
+                        filter_type: string
+                        sortable:    true
+                    form:
+                        type: choice
+                        options:
+                            block:       entity
+                            label:       'Type'
+                            choices:     ['integer', 'decimal', 'datetime', 'varchar', 'text']
+                            empty_value: false

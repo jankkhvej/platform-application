@@ -1,0 +1,63 @@
+{# src/Szkla/Bundle/ProductGridBundle/SzklaProductGridBundle/Resources/views/Attributes/view.html.twig #}
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+
+{% block navButtons %}
+    {% if resource_granted('EDIT', attribute) %}
+        {{ UI.editButton({
+            'path' : path('szkla_attributes.attribute_update', { id: attribute.id }),
+            'entity_label': 'Attribute'|trans
+        }) }}
+    {% endif %}
+
+    {% if resource_granted('DELETE', attribute) %}
+        {{ UI.deleteButton({
+            'dataUrl': path('szkla_attributes_api_delete_attribute', {'id': attribute.id}),
+            'dataRedirect': path('szkla_attributes.attributes_index'),
+            'aCss': 'no-hash remove-button',
+            'id': 'btn-remove-attribute',
+            'dataId': attribute.id,
+            'entity_label': 'Attribute'|trans,
+        }) }}
+    {% endif %}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      attribute,
+        'indexPath':   path('szkla_attributes.attributes_index'),
+        'indexLabel': 'Attributes'|trans,
+        'entityTitle': attribute.attributeName
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block stats %}
+    <li>{{ 'ID #'|trans }}: {{ attribute.id ? attribute.id : 'N/A'}}</li>
+{% endblock stats %}
+
+{% block content_data %}
+    {% set attributeInformationWidget %}
+        <div class="widget-content">
+            <div class="row-fluid form-horizontal">
+                <div class="responsive-block">
+                    {{ UI.renderProperty('Name'|trans, attribute.attributeName) }}
+                    {{ UI.renderProperty('Type'|trans, attribute.attributeType) }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+    {% set dataBlocks = [
+        {
+            'title': 'Attribute Information'|trans,
+            'class': 'active',
+            'subblocks': [
+                { 'data' : [attributeInformationWidget] }
+            ]
+        }
+    ] %}
+
+    {% set id = 'attributeView' %}
+    {% set data = { 'dataBlocks': dataBlocks } %}
+    {{ parent() }}
+{% endblock content_data %}

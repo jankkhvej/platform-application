@@ -1,0 +1,14 @@
+{% extends 'OroUIBundle:actions:index.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+{% set pageTitle = 'Attributes'|trans %}
+
+{% block navButtons %}
+    {% if resource_granted('szkla_attributes.attributes_view') %}
+        <div class="btn-group">
+            {{ UI.addButton({
+                'path': path('szkla_attributes.attribute_create'),
+                'entity_label': 'Attribute'|trans
+            }) }}
+        </div>
+    {% endif %}
+{% endblock %}

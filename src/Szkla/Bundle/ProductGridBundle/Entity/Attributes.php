@@ -12,6 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Attributes
 {
+    const TYPE_INTEGER = 'integer';
+    const TYPE_DECIMAL = 'decimal';
+    const TYPE_DATETIME = 'datetime';
+    const TYPE_VARCHAR = 'varchar';
+    const TYPE_TEXT = 'text';
+
+    static private $_types = null;
+
     /**
      * @var string
      *
@@ -41,7 +49,6 @@ class Attributes
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-
 
 
     /**
@@ -77,6 +84,12 @@ class Attributes
      */
     public function setAttributeType($attributeType)
     {
+        if (!in_array($attributeType, static::getAttributeTypeFieldChoices())) {
+            throw new \InvalidArgumentException(
+                sprintf('Invalid value for attributes.attribute_type : "%s"', var_export($attributeType, true))
+            );
+        }
+
         $this->attributeType = $attributeType;
 
         return $this;
@@ -125,4 +138,26 @@ class Attributes
     {
         return $this->id;
     }
+
+    static public function getAttributeTypeFieldChoices()
+    {
+        // Build $_types if this is the first call
+        if (null === static::$_types)
+        {
+            static::$_types = array ();
+            $oClass = new \ReflectionClass('\Szkla\Bundle\ProductGridBundle\Entity\Attributes');
+            $classConstants = $oClass->getConstants();
+            $constantPrefix = "TYPE_";
+            foreach ($classConstants as $key => $val)
+            {
+                if (substr($key, 0, strlen($constantPrefix)) === $constantPrefix)
+                {
+                    static::$_types[$val] = $val;
+                }
+            }
+        }
+        return static::$_types;
+    }
+
+
 }

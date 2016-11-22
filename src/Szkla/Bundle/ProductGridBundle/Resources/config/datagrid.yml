@@ -89,3 +89,75 @@ datagrid:
                 link:          delete_link
                 icon:          trash
                 acl_resource:  szkla_products.product_delete
+
+    attributes-grid:
+        source:
+            acl_resource: szkla_attributes.attribute_view
+            type: orm
+            query:
+                select:
+                    - a.id
+                    - a.attributeName
+                    - a.attributeType
+                from:
+                    - { table: SzklaProductGridBundle:Attributes, alias: a }
+        columns:
+            attributeName:
+                label: "Name"
+                frontend_type: string
+            attributeType:
+                label: "Type"
+                frontend_type: string
+        properties:
+            id: ~
+            update_link:
+                type: url
+                route: szkla_attributes.attribute_update
+                params:
+                    - id
+            view_link:
+                type: url
+                route: szkla_attributes.attribute_view
+                params:
+                    - id
+            delete_link:
+                type: url
+                route: szkla_attributes_api_delete_attribute
+                params:
+                    - id
+        sorters:
+            columns:
+                attributeName:
+                    data_name: a.attributeName
+                attributeType:
+                    data_name: a.attributeType
+            default:
+                attributeName: ASC
+        filters:
+            columns:
+                attributeName:
+                    type: string
+                    data_name: a.attributeName
+                attributeType:
+                    type: string
+                    data_name: a.attributeType
+        actions:
+            view:
+                type:          navigate
+                label:         View
+                link:          view_link
+                icon:          eye-open
+                acl_resource:  szkla_attributes.attribute_view
+                rowAction:     true
+            update:
+                type:          navigate
+                label:         Update
+                link:          update_link
+                icon:          edit
+                acl_resource:  szkla_attributes.attribute_update
+            delete:
+                type:          delete
+                label:         Delete
+                link:          delete_link
+                icon:          trash
+                acl_resource:  szkla_attributes.attribute_delete
