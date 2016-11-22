@@ -31,7 +31,7 @@ class ValueDecimal
     /**
      * @var \Szkla\Bundle\ProductGridBundle\Entity\Product
      *
-     * @ORM\ManyToOne(targetEntity="Product.php" inversedBy="products")
+     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Product")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="product_id", referencedColumnName="id")
      * })
@@ -41,7 +41,7 @@ class ValueDecimal
     /**
      * @var \Szkla\Bundle\ProductGridBundle\Entity\Attribute
      *
-     * @ORM\ManyToOne(targetEntity="Attribute.php")
+     * @ORM\ManyToOne(targetEntity="Szkla\Bundle\ProductGridBundle\Entity\Attribute")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="attribute_id", referencedColumnName="id")
      * })

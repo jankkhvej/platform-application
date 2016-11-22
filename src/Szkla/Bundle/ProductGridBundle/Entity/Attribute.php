@@ -145,7 +145,7 @@ class Attribute
         if (null === static::$_types)
         {
             static::$_types = array ();
-            $oClass = new \ReflectionClass('\Szkla\Bundle\ProductGridBundle\Entity\Attributes');
+            $oClass = new \ReflectionClass(static::class);
             $classConstants = $oClass->getConstants();
             $constantPrefix = "TYPE_";
             foreach ($classConstants as $key => $val)
