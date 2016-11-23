@@ -1,0 +1,10 @@
+# src/Szkla/Bundle/TestBundle/Resources/config/navigation.yml
+oro_menu_config:
+    items:
+        hotel_list:
+            label: Hotels
+            route: szkla_test.hotel_index
+    tree:
+        application_menu:
+            children:
+                hotel_list: ~

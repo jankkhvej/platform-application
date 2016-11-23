@@ -1,0 +1,5 @@
+# src/Szkla/Bundle/TestBundle/Resources/config/oro/routing.yml
+szkla_test_bundle:
+    resource: "@SzklaTestBundle/Controller"
+    type: annotation
+    prefix: /szkla_test

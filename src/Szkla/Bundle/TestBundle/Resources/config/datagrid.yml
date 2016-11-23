@@ -1,0 +1,71 @@
+# src/Szkla/Bundle/TestBundle/Resources/config/oro/datagrids.yml
+datagrid:
+    hotels-grid:
+        source:
+            acl_resource: szkla.hotel_view
+            type: orm
+            query:
+                select:
+                    - h.id
+                    - h.name
+                    - h.hotel_ranking
+                from:
+                    - { table: SzklaTestBundle:Hotel, alias: h }
+        columns:
+            name:
+                label: Name
+            hotel_ranking:
+                label: Ranking
+        properties:
+            id: ~
+#            update_link:
+#                type: url
+#                route: szkla_test.hotel_update
+#                params:
+#                    - id
+#            view_link:
+#                type: url
+#                route: szkla_test.hotel_view
+#                params:
+#                    - id
+#            delete_link:
+#                type: url
+#                route: inventory_api_delete_vehicle
+#                params:
+#                    - id
+        sorters:
+            columns:
+                name:
+                    data_name: h.name
+                hotel_ranking:
+                    data_name: h.hotel_ranking
+            default:
+                name: ASC
+        filters:
+            columns:
+                name:
+                    type: string
+                    data_name: h.name
+                hotel_ranking:
+                    type: string
+                    data_name: h.hotel_ranking
+        actions:
+#            view:
+#                type:          navigate
+#                label:         View
+#                link:          view_link
+#                icon:          eye-open
+#                acl_resource:  szkla_test.hotel_view
+#                rowAction:     true
+#            update:
+#                type:          navigate
+#                label:         Update
+#                link:          update_link
+#                icon:          edit
+#                acl_resource:  szkla_test.hotel_update
+#            delete:
+#                type:          delete
+#                label:         Delete
+#                link:          delete_link
+#                icon:          trash
+#                acl_resource:  szkla_test.hotel_delete

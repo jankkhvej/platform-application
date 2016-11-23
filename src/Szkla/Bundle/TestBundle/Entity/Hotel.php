@@ -21,7 +21,15 @@ use Szkla\Bundle\TestBundle\Model\ExtendHotel;
  *         "engine": "InnoDB"
  *      }
  * )
- * @Config
+ * @Config(
+ *      routeName="szkla_test.hotel_index",
+ *      routeView="szkla_test.hotel_view",
+ *      defaultValues={
+ *          "grid"={
+ *              "default"="hotels-grid",
+ *          }
+ *      }
+ * )
  */
 class Hotel extends ExtendHotel
 {
