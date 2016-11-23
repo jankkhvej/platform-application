@@ -1,4 +1,4 @@
-# src/Szkla/Bundle/TestBundle/Resources/config/oro/datagrids.yml
+# src/Szkla/Bundle/TestBundle/Resources/config/datagrid.yml
 datagrid:
     hotels-grid:
         source:
