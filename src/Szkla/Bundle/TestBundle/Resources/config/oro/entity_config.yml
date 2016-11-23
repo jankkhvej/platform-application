@@ -1,0 +1,22 @@
+# src/Szkla/Bundle/TestBundle/Resources/config/oro/entity_config.yml
+entity_config:
+    hotel:
+        entity:
+            items:
+                name:
+                    options:
+                        default_value: ""
+                        translateble: false
+                        indexed: true
+                    grid:
+                        type: string
+                        label: Name
+                        show_filter: true
+                        filterable: true
+                        filter_type: string
+                        sortable: true
+                    form:
+                        type: string
+                        options:
+                            block: entity
+                            label: Name
