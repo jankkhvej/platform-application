@@ -1,0 +1,55 @@
+{# src/Szkla/Bundle/TestBundle/Resources/views/Hotel/view.html.twig #}
+{% extends 'OroUIBundle:actions:view.html.twig' %}
+{% import 'OroUIBundle::macros.html.twig' as UI %}
+
+{% block navButtons %}
+    {% if resource_granted('EDIT', hotel) %}
+        {{ UI.editButton({
+            'path' : path('szkla_test.hotel_update', { id: hotel.id }),
+            'entity_label': 'Hotel'|trans
+        }) }}
+    {% endif %}
+
+    {% if resource_granted('DELETE', hotel) %}
+        {{ UI.deleteButton({
+            'dataUrl': path('szkla_test_api_delete_hotel', {'id': hotel.id}),
+            'dataRedirect': path('szkla_test.hotel_index'),
+            'aCss': 'no-hash remove-button',
+            'id': 'btn-remove-hotel',
+            'dataId': hotel.id,
+            'entity_label': 'Hotel'|trans,
+        }) }}
+    {% endif %}
+{% endblock navButtons %}
+
+{% block pageHeader %}
+    {% set breadcrumbs = {
+        'entity':      hotel,
+        'indexPath':   path('szkla_test.hotel_index'),
+        'indexLabel': 'Hotels'|trans,
+        'entityTitle': hotel.name
+    } %}
+    {{ parent() }}
+{% endblock pageHeader %}
+
+{% block content_data %}
+    {% set data %}
+        <div class="widget-content">
+            <div class="row-fluid form-horizontal">
+                <div class="responsive-block">
+                    {{ UI.renderProperty('Name'|trans, hotel.name) }}
+                    {{ UI.renderProperty('Ranking'|trans, hotel.hotelRanking) }}
+                </div>
+            </div>
+        </div>
+    {% endset %}
+    {% set dataBlocks = [{
+        'title': 'Data'|trans,
+        'class': 'active',
+        'subblocks': [{ 'data' : [data] }]
+    }] %}
+
+    {% set id = 'hotelView' %}
+    {% set data = { 'dataBlocks': dataBlocks } %}
+    {{ parent() }}
+{% endblock content_data %}

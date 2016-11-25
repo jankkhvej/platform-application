@@ -16,23 +16,26 @@ datagrid:
                 label: Name
             hotel_ranking:
                 label: Ranking
+            tags:
+                label: Tags
+                frontend_type: tags
         properties:
             id: ~
-#            update_link:
-#                type: url
-#                route: szkla_test.hotel_update
-#                params:
-#                    - id
-#            view_link:
-#                type: url
-#                route: szkla_test.hotel_view
-#                params:
-#                    - id
-#            delete_link:
-#                type: url
-#                route: inventory_api_delete_vehicle
-#                params:
-#                    - id
+            update_link:
+                type: url
+                route: szkla_test.hotel_update
+                params:
+                    - id
+            view_link:
+                type: url
+                route: szkla_test.hotel_view
+                params:
+                    - id
+            delete_link:
+                type: url
+                route: szkla_test_api_delete_hotel
+                params:
+                    - id
         sorters:
             columns:
                 name:
@@ -50,22 +53,22 @@ datagrid:
                     type: string
                     data_name: h.hotel_ranking
         actions:
-#            view:
-#                type:          navigate
-#                label:         View
-#                link:          view_link
-#                icon:          eye-open
-#                acl_resource:  szkla_test.hotel_view
-#                rowAction:     true
-#            update:
-#                type:          navigate
-#                label:         Update
-#                link:          update_link
-#                icon:          edit
-#                acl_resource:  szkla_test.hotel_update
-#            delete:
-#                type:          delete
-#                label:         Delete
-#                link:          delete_link
-#                icon:          trash
-#                acl_resource:  szkla_test.hotel_delete
+            view:
+                type:          navigate
+                label:         View
+                link:          view_link
+                icon:          eye-open
+                acl_resource:  szkla_test.hotel_view
+                rowAction:     true
+            update:
+                type:          navigate
+                label:         Update
+                link:          update_link
+                icon:          edit
+                acl_resource:  szkla_test.hotel_update
+            delete:
+                type:          delete
+                label:         Delete
+                link:          delete_link
+                icon:          trash
+                acl_resource:  szkla_test.hotel_delete

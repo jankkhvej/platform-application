@@ -3,3 +3,13 @@ szkla_test_bundle:
     resource: "@SzklaTestBundle/Controller"
     type: annotation
     prefix: /szkla_test
+
+szkla_test_api_hotel:
+    resource:     "@SzklaTestBundle/Controller/Api/Rest/HotelController.php"
+    type:         rest
+    prefix:       api/rest/{version}/
+    requirements:
+        version:  latest|v1
+        _format:  json
+    defaults:
+        version:  latest

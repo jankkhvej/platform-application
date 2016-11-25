@@ -1,0 +1,7 @@
+services:
+    szkla_test.hotel_manager.api:
+        class: Oro\Bundle\SoapBundle\Entity\Manager\ApiEntityManager
+        parent: oro_soap.manager.entity_manager.abstract
+        arguments:
+            - Szkla\Bundle\TestBundle\Entity\Hotel
+            - "@doctrine.orm.entity_manager"

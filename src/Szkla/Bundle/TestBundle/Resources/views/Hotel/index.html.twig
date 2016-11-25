@@ -2,7 +2,7 @@
 {% import 'OroUIBundle::macros.html.twig' as UI %}
 {% set pageTitle = 'Hotels'|trans %}
 
-{#% block navButtons %}
+{% block navButtons %}
     {% if resource_granted('szkla_test.hotel_view') %}
         <div class="btn-group">
             {{ UI.addButton({
@@ -11,4 +11,4 @@
             }) }}
         </div>
     {% endif %}
-{% endblock %#}
+{% endblock %}

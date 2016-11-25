@@ -1,0 +1,6 @@
+# src/Szkla/Bundle/TestBundle/Resources/config/form.yml
+services:
+    szkla_test.form.type.hotel:
+        class: Szkla\Bundle\TestBundle\Form\Type\HotelType
+        tags:
+            - { name: form.type, alias: szkla_test_hotel }
